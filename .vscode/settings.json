@@ -1,0 +1,14 @@
+{
+  "debug.internalConsoleOptions": "neverOpen",
+  "stylelint.validate": ["astro"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/f.moreno/Projects/astro-tetris/.github/workflows/action.yml"
+  }
+}
