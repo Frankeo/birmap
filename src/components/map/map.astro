@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+const places = await getCollection("places");
+---
+
+<div id="map"></div>
+
+<div class="section is-hidden">
+  {
+    places.map((place) => {
+      return (
+        <p class="points">
+          {place.slug}|{place.data.lat}|{place.data.lng}
+        </p>
+      );
+    })
+  }
+</div>
+
+<style>
+  #map {
+    height: 100%;
+    width: 100%%;
+  }
+</style>
+
+<script is:inline>
+  ((g) => {
+    var h,
+      a,
+      k,
+      p = "The Google Maps JavaScript API",
+      c = "google",
+      l = "importLibrary",
+      q = "__ib__",
+      m = document,
+      b = window;
+    b = b[c] || (b[c] = {});
+    var d = b.maps || (b.maps = {}),
+      r = new Set(),
+      e = new URLSearchParams(),
+      u = () =>
+        h ||
+        (h = new Promise(async (f, n) => {
+          await (a = m.createElement("script"));
+          e.set("libraries", [...r] + "");
+          for (k in g)
+            e.set(
+              k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+              g[k],
+            );
+          e.set("callback", c + ".maps." + q);
+          a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+          d[q] = f;
+          a.onerror = () => (h = n(Error(p + " could not load.")));
+          a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+          m.head.append(a);
+        }));
+    d[l]
+      ? console.warn(p + " only loads once. Ignoring:", g)
+      : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+  })({
+    key: "AIzaSyDM8Mrq06-GFVVpOS4L4dQInUPVVMwVCx0",
+    v: "weekly",
+  });
+</script>
+
+<script>
+  import { initMap } from "./map";
+
+  const points = document.getElementsByClassName("points");
+  const mapPoints = [];
+  for (const point of points) {
+    const parts = point.innerHTML.split("|");
+    mapPoints.push({
+      position: { lat: Number(parts[1]), lng: Number(parts[2]) },
+      title: parts[0],
+    } as MapPoint);
+  }
+  console.log(mapPoints);
+  initMap(mapPoints);
+</script>

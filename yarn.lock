@@ -1224,6 +1224,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/google.maps@npm:^3.54.7":
+  version: 3.54.7
+  resolution: "@types/google.maps@npm:3.54.7"
+  checksum: 903b9d172cd3a74f9ad019a2bf466e9a4d195656588f39ed724ae6504b8c043f89206ee53ce18f05c2540f052213db522aaad8717f82d5829551e9e6d5f9b2db
+  languageName: node
+  linkType: hard
+
 "@types/hast@npm:^2.0.0":
   version: 2.3.8
   resolution: "@types/hast@npm:2.3.8"
@@ -2025,6 +2032,7 @@ __metadata:
     "@astrojs/check": ^0.3.1
     "@commitlint/cli": ^18.2.0
     "@commitlint/config-conventional": ^18.1.0
+    "@types/google.maps": ^3.54.7
     "@typescript-eslint/eslint-plugin": ^6.4.0
     "@typescript-eslint/parser": ^6.6.0
     astro: ^3.4.4

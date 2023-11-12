@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import Card from "./card.astro";
+
+const places = await getCollection("places");
+---
+
+<div class="scrollable columns is-flex-direction-column">
+  {
+    places.map((place) => {
+      return (
+        <div class="column">
+          <Card
+            slug={place.slug}
+            title={place.data.title}
+            image={place.data.image}
+            summary={place.data.summary}
+            phone={place.data.phone}
+            address={place.data.address}
+          />
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  .scrollable {
+    overflow-y: scroll;
+    height: 85vh;
+  }
+</style>

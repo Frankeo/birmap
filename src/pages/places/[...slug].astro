@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/template.astro";
+
+import { type InferGetStaticPropsType } from "astro";
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export const getStaticPaths = async () => {
+  const places = await getCollection("places");
+  return places.map((entry) => {
+    return { params: { slug: entry.slug }, props: { entry } };
+  });
+};
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+  <section class="section has-background-primary-light">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-3by2">
+                <img src={entry.data.image} alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-1">{entry.data.title}</p>
+              <div class="content">
+                <p class="subtitle">{entry.data.summary}</p>
+                <ul>
+                  <li>
+                    <li>
+                      <strong>Incluye:</strong>
+                      <Content />
+                    </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-2"></div>
+      </div>
+    </div>
+  </section>
+</Layout>
