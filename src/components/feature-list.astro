@@ -1,0 +1,74 @@
+---
+import { getEntry } from "astro:content";
+import Feature from "./feature.astro";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const entry = await getEntry("places", slug);
+const {
+  drafts,
+  differentBeers,
+  isGluteenFree,
+  hasTapas,
+  isRestaurant,
+  hasLiveMusic,
+  hasSportsTv,
+  isBrewery,
+} = entry?.data ?? {};
+---
+
+<div class="content is-medium">
+  <p>La instalacion posee:</p>
+  <Feature
+    iconClass="fa-solid fa-beer-mug-empty"
+    value={drafts}
+    title="Tiradores"
+    text={`Una barra con <strong>${entry?.data.drafts}</strong> tiradores de cerveza`}
+  />
+  <Feature
+    iconClass="fa-brands fa-untappd"
+    value={differentBeers}
+    title="Tipos de Cerveza"
+    text={`Puedes encontrarte con <strong>${entry?.data.differentBeers}</strong> tipos diferentes de cervezas`}
+  />
+  <Feature
+    iconClass="fa-solid fa-wheat-awn-circle-exclamation"
+    value={isGluteenFree}
+    title="Cerveza sin Gluten"
+    text={`<strong>SI</strong> poseemos cerveza sin gluten`}
+  />
+  <Feature
+    iconClass="fa-solid fa-pizza-slice"
+    value={hasTapas}
+    title="Tapas"
+    text={`<strong>SI</strong> poseemos tapas en nuestro local`}
+  />
+  <Feature
+    iconClass="fa-solid fa-utensils"
+    value={isRestaurant}
+    title="Restaurante"
+    text={`<strong>SI</strong> estamos habilitados para servir platos como un restaurante`}
+  />
+  <Feature
+    iconClass="fa-solid fa-music"
+    value={hasLiveMusic}
+    title="Musica en Vivo"
+    text={`<strong>SI</strong> tenemos musica en vivo`}
+  />
+  <Feature
+    iconClass="fa-solid fa-futbol"
+    value={hasSportsTv}
+    title="Deportes en Vivo"
+    text={`<strong>SI</strong> tenemos deportes en vivo`}
+  />
+  <Feature
+    iconClass="fa-solid fa-building"
+    value={isBrewery}
+    title="Fabrica de Cervezas"
+    text={`<strong>SI</strong> somos una fabrica de cervezas artesanales`}
+  />
+</div>
