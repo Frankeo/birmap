@@ -20,4 +20,3 @@ hasLiveMusic: true
 hasSportsTv: true
 isBrewery: true
 ---
-
