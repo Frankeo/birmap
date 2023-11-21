@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
-    "build": "tinacms build && astro check && astro build",
+    "build": "astro check && astro build && tinacms build",
     "ci-build": "yarn pre-push && yarn build",
     "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "pre-push": "yarn check-format && yarn lint",
