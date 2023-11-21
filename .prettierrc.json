@@ -6,12 +6,6 @@
       "options": {
         "parser": "astro"
       }
-    },
-    {
-      "files": "*.md",
-      "options": {
-        "endOfLine": "crlf"
-      }
     }
   ]
 }
