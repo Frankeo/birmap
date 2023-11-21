@@ -1,4 +1,5 @@
 ---
+import Icon from "./icon.astro";
 interface Props {
   slug: string;
   title: string;
@@ -52,78 +53,17 @@ const {
         </div>
       </div>
       <div class="block">
-        {
-          drafts != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-beer-mug-empty fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          differentBeers != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-brands fa-untappd fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          isGluteenFree != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-wheat-awn-circle-exclamation fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          hasTapas != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-pizza-slice fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          isRestaurant != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-utensils fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          hasLiveMusic != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-music fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          hasSportsTv != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-futbol fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
-        {
-          isBrewery != null ? (
-            <span class="icon has-text-primary is-large">
-              <i class="fa-solid fa-building fa-2x" />
-            </span>
-          ) : (
-            ""
-          )
-        }
+        <Icon iconClass="fa-solid fa-beer-mug-empty" value={drafts} />
+        <Icon iconClass="fa-brands fa-untappd" value={differentBeers} />
+        <Icon
+          iconClass="fa-solid fa-wheat-awn-circle-exclamation"
+          value={isGluteenFree}
+        />
+        <Icon iconClass="fa-solid fa-pizza-slice" value={hasTapas} />
+        <Icon iconClass="fa-solid fa-utensils" value={isRestaurant} />
+        <Icon iconClass="fa-solid fa-music" value={hasLiveMusic} />
+        <Icon iconClass="fa-solid fa-futbol" value={hasSportsTv} />
+        <Icon iconClass="fa-solid fa-building" value={isBrewery} />
       </div>
     </div>
   </a>

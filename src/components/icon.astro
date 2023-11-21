@@ -1,0 +1,22 @@
+---
+interface Props {
+  iconClass: string;
+  value?: number | boolean;
+}
+
+const { iconClass, value } = Astro.props;
+const isNumeric = !isNaN(Number(value?.toString()));
+---
+
+{
+  value != null ? (
+    <span
+      class={`icon has-text-primary ${isNumeric ? "is-large" : "is-medium"}`}
+    >
+      {isNumeric ? <span>{value}</span> : ""}
+      <i class={`${iconClass} fa-xl`} />
+    </span>
+  ) : (
+    ""
+  )
+}
