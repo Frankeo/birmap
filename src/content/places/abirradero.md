@@ -1,9 +1,9 @@
 ---
 title: Abirradero
-summary: >
+summary: >-
   Abirradero es una cerveceria que esta totalmente vinculada al humor y al ritmo
   de Barcelona.  Conocidos ademas por nuestra comida fusion mediterranea y por
-  nuestros 40 tiradores de cerveza.
+  nuestros 40 tiradores de cerveza. Que estas esperando?!
 address: c/ Vila I Vilà 77
 lat: 41.37428664666007
 lng: 2.1685619839299215
