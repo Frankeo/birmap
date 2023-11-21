@@ -5,6 +5,7 @@ interface Props {
   image: string;
   address: string;
   phone: number;
+  position: number;
   drafts?: number;
   differentBeers?: number;
   isGluteenFree?: boolean;
@@ -22,6 +23,7 @@ const {
   address,
   slug,
   phone,
+  position,
   differentBeers,
   isGluteenFree,
   hasTapas,
@@ -42,7 +44,10 @@ const {
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-4">{title}</p>
+          <p class="title is-4 is-flex is-justify-content-space-between">
+            {title}
+            <span class="tag is-rounded is-danger">{position}</span>
+          </p>
           <p class="subtitle is-6">{address} - {phone}</p>
         </div>
       </div>
