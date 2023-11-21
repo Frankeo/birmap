@@ -9,7 +9,7 @@ const isNumeric = !isNaN(Number(value?.toString()));
 ---
 
 {
-  value != null ? (
+  (value != null && isNumeric) || value === true ? (
     <span
       class={`icon has-text-primary ${isNumeric ? "is-large" : "is-medium"}`}
     >
