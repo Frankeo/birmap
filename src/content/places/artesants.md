@@ -1,8 +1,8 @@
 ---
 title: Artesants
 slug: artesants
-image: /artesants.png
-localImage: /abirradero-local.jpg
+image: /assets/artesants.png
+localImage: /assets/abirradero-local.jpg
 address: c/ del Guadiana 8
 lat: 41.37514697184369
 lng: 2.1390122113832346

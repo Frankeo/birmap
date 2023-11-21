@@ -1,20 +1,20 @@
 ---
 title: Bar Centro Burgers & Craft Beers
-slug: centro-burgers
-image: /img-1.jpg
-localImage: /abirradero-local.jpg
+summary: |
+  Birra
 address: c/ Casp 55
 lat: 41.39297524349307
 lng: 2.17528234248426
 phone: 934619446
-drafts: 40
-differentBeers: 12
+image: /assets/arcoiris.jpg
+localImage: /assets/abirradero-local.jpg
+drafts: 8
+differentBeers: 20
 isGluteenFree: true
-hasTapas: true
+hasBurgers: true
+hasTapas: false
 isRestaurant: true
-hasLiveMusic: true
-hasSportsTv: true
-isBrewery: true
-summary: >
-  Birra
+hasLiveMusic: false
+hasSportsTv: false
+isBrewery: false
 ---

@@ -1,20 +1,20 @@
 ---
 title: Barna Brew
-slug: barna-brew
-image: /img-1.jpg
-localImage: /abirradero-local.jpg
+summary: >-
+  Vení a conocer nuestras premiadas cervezas de estilo Belga y descubrí nuestros
+  magnificos maridajes con nuestra suculenta y creativa carta de tapas y
+  emparedados!
 address: c/ Parlament 45
 lat: 41.377456931806485
 lng: 2.1635240839300507
 phone: 934619446
-drafts: 40
-differentBeers: 12
+image: /assets/artesants.png
+localImage: /assets/abirradero-local.jpg
+drafts: 8
+differentBeers: 6
 isGluteenFree: true
+hasBurgers: true
 hasTapas: true
-isRestaurant: true
 hasLiveMusic: true
-hasSportsTv: true
-isBrewery: true
-summary: >
-  Birra
+hasBeerTasting: true
 ---

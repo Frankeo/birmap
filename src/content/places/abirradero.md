@@ -5,8 +5,8 @@ address: c/ Vila I Vilà 77
 phone: 934619446
 lat: 41.37428664666007
 lng: 2.1685619839299215
-image: /abirradero.jpeg
-localImage: /abirradero-local.jpg
+image: /assets/abirradero.jpeg
+localImage: /assets/abirradero-local.jpg
 drafts: 40
 differentBeers: 12
 isGluteenFree: true

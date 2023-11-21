@@ -1,8 +1,8 @@
 ---
 title: Ale-Hop
 slug: ale-hop
-image: /ale-hop.jpg
-localImage: /abirradero-local.jpg
+image: /assets/ale-hop.jpg
+localImage: /assets/abirradero-local.jpg
 address: c/ Basses de Sant Pere 10
 lat: 41.38877255413237
 lng: 2.1800520667338423

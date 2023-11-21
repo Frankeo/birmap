@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "tinacms build && astro check && astro build",
     "ci-build": "yarn pre-push && yarn build",
     "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "pre-push": "yarn check-format && yarn lint",
@@ -17,13 +17,16 @@
   "dependencies": {
     "@astrojs/check": "^0.3.1",
     "astro": "^3.4.4",
-    "nanostores": "^0.9.3"
+    "nanostores": "^0.9.3",
+    "tinacms": "^1.5.24"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
     "@fortawesome/fontawesome-free": "^6.4.2",
+    "@tinacms/cli": "^1.5.34",
     "@types/google.maps": "^3.54.7",
+    "@types/node": "^20.9.3",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.6.0",
     "bulma": "0.9.4",

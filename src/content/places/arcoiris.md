@@ -1,8 +1,8 @@
 ---
 title: Arcoiris
 slug: arcoiris
-image: /arcoiris.jpg
-localImage: /abirradero-local.jpg
+image: /assets/arcoiris.jpg
+localImage: /assets/abirradero-local.jpg
 address: c/ Nil 11
 lat: 41.43444902994454
 lng: 2.1719061942025095
