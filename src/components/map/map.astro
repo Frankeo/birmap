@@ -1,6 +1,14 @@
 ---
 import { getCollection } from "astro:content";
-const places = await getCollection("places");
+export interface Props {
+  singlePointSlug?: string;
+}
+
+const { singlePointSlug } = Astro.props;
+
+const places = await getCollection("places", ({ slug }) => {
+  return singlePointSlug !== undefined ? slug === singlePointSlug : true;
+});
 ---
 
 <div id="map"></div>
@@ -10,17 +18,22 @@ const places = await getCollection("places");
     places.map((place) => {
       return (
         <p class="points">
-          {place.slug}|{place.data.lat}|{place.data.lng}
+          {place.data.title}|{place.data.lat}|{place.data.lng}|{place.slug}
         </p>
       );
     })
   }
 </div>
 
-<style>
+<style lang="scss">
+  @import "bulma/sass/utilities/mixins.sass";
   #map {
     height: 100%;
-    width: 100%%;
+    width: 100%;
+    @include mobile {
+      width: 88vw;
+      height: 75vh;
+    }
   }
 </style>
 
@@ -75,8 +88,9 @@ const places = await getCollection("places");
     mapPoints.push({
       position: { lat: Number(parts[1]), lng: Number(parts[2]) },
       title: parts[0],
+      slug: parts[3],
     } as MapPoint);
   }
-  console.log(mapPoints);
+
   initMap(mapPoints);
 </script>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  phone: number;
+}
+
+const { phone } = Astro.props;
+---
+
+<a href=`tel:${phone}`>
+  <span class="icon">
+    <i class="fa-solid fa-phone"></i>
+  </span>
+  {phone}
+</a>

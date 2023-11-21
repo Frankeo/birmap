@@ -18,7 +18,7 @@ export async function initMap(tourStops: MapPoint[]): Promise<void> {
   const infoWindow = new InfoWindow();
 
   // Create the markers.
-  tourStops.forEach(({ position, title }, i) => {
+  tourStops.forEach(({ position, title, slug }, i) => {
     const pin = new PinElement({
       glyph: `${i + 1}`,
     });
@@ -26,7 +26,7 @@ export async function initMap(tourStops: MapPoint[]): Promise<void> {
     const marker = new AdvancedMarkerElement({
       position,
       map,
-      title: `${i + 1}. ${title}`,
+      title: `<a href='/places/${slug}'>${title}</a>`,
       content: pin.element,
     });
 

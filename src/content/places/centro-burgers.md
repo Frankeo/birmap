@@ -2,22 +2,19 @@
 title: Bar Centro Burgers & Craft Beers
 slug: centro-burgers
 image: /img-1.jpg
+localImage: /abirradero-local.jpg
 address: c/ Casp 55
 lat: 41.39297524349307
 lng: 2.17528234248426
 phone: 934619446
+drafts: 40
+differentBeers: 12
+isGluteenFree: true
+hasTapas: true
+isRestaurant: true
+hasLiveMusic: true
+hasSportsTv: true
+isBrewery: true
 summary: >
   Birra
 ---
-
-Traslados + Hotel + Entradas
-
-- Traslados Aeropuerto/Hotel/Aeropuerto
-
-- 01 noche de alojamiento con desayuno
-
-- Traslados al show ida y vuelta
-
-- Entrada seleccionada
-
-- Asistencia al viajero UNIVERSAL ASSISTANCE

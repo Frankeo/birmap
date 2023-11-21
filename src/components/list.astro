@@ -10,14 +10,7 @@ const places = await getCollection("places");
     places.map((place) => {
       return (
         <div class="column">
-          <Card
-            slug={place.slug}
-            title={place.data.title}
-            image={place.data.image}
-            summary={place.data.summary}
-            phone={place.data.phone}
-            address={place.data.address}
-          />
+          <Card slug={place.slug} {...place.data} />
         </div>
       );
     })

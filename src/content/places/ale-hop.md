@@ -2,22 +2,19 @@
 title: Ale-Hop
 slug: ale-hop
 image: /ale-hop.jpg
+localImage: /abirradero-local.jpg
 address: c/ Basses de Sant Pere 10
 lat: 41.38877255413237
 lng: 2.1800520667338423
 phone: 934619446
+drafts: 40
+differentBeers: 12
+isGluteenFree: true
+hasTapas: true
+isRestaurant: true
+hasLiveMusic: true
+hasSportsTv: true
+isBrewery: true
 summary: >
   Birra
 ---
-
-Traslados + Hotel + Entradas
-
-- Traslados Aeropuerto/Hotel/Aeropuerto
-
-- 01 noche de alojamiento con desayuno
-
-- Traslados al show ida y vuelta
-
-- Entrada seleccionada
-
-- Asistencia al viajero UNIVERSAL ASSISTANCE

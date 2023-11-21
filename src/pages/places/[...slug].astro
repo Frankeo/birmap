@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import Features from "../../components/features.astro";
 import Layout from "../../layouts/template.astro";
-
+import GoogleLink from "../../components/google-map-link.astro";
+import PhoneLink from "../../components/phone-link.astro";
 import { type InferGetStaticPropsType } from "astro";
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -27,21 +29,28 @@ const { Content } = await entry.render();
           <div class="card">
             <div class="card-image">
               <figure class="image is-3by2">
-                <img src={entry.data.image} alt="Placeholder image" />
+                <img src={entry.data.localImage} alt="Placeholder image" />
               </figure>
             </div>
             <div class="card-content">
-              <p class="title is-1">{entry.data.title}</p>
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-96x96">
+                    <img src={entry.data.image} alt="Placeholder image" />
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-1 is-size-3-mobile">{entry.data.title}</p>
+                  <p id="info" class="subtitle is-4 is-size-6-mobile is-flex">
+                    <GoogleLink destination={entry.data.address} />
+                    <PhoneLink phone={entry.data.phone} />
+                  </p>
+                </div>
+              </div>
               <div class="content">
                 <p class="subtitle">{entry.data.summary}</p>
-                <ul>
-                  <li>
-                    <li>
-                      <strong>Incluye:</strong>
-                      <Content />
-                    </li>
-                  </li>
-                </ul>
+                <Features slug={entry.slug} />
+                <Content />
               </div>
             </div>
           </div>
@@ -51,3 +60,18 @@ const { Content } = await entry.render();
     </div>
   </section>
 </Layout>
+
+<style lang="scss">
+  @import "bulma/sass/utilities/mixins.sass";
+
+  #info {
+    gap: 2rem;
+  }
+
+  @include mobile {
+    #info {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

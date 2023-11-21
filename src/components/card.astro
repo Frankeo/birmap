@@ -2,13 +2,34 @@
 interface Props {
   slug: string;
   title: string;
-  summary: string;
   image: string;
   address: string;
   phone: number;
+  drafts?: number;
+  differentBeers?: number;
+  isGluteenFree?: boolean;
+  hasTapas?: boolean;
+  isRestaurant?: boolean;
+  hasLiveMusic?: boolean;
+  hasSportsTv?: boolean;
+  isBrewery?: boolean;
 }
 
-const { title, image, summary, address, slug, phone } = Astro.props;
+const {
+  title,
+  image,
+  drafts,
+  address,
+  slug,
+  phone,
+  differentBeers,
+  isGluteenFree,
+  hasTapas,
+  isRestaurant,
+  hasLiveMusic,
+  hasSportsTv,
+  isBrewery,
+} = Astro.props;
 ---
 
 <div class="card has-background-info-light">
@@ -25,8 +46,79 @@ const { title, image, summary, address, slug, phone } = Astro.props;
           <p class="subtitle is-6">{address} - {phone}</p>
         </div>
       </div>
-      <div class="content subtitle">
-        <p>{summary}</p>
+      <div class="block">
+        {
+          drafts != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-beer-mug-empty fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          differentBeers != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-brands fa-untappd fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          isGluteenFree != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-wheat-awn-circle-exclamation fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          hasTapas != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-pizza-slice fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          isRestaurant != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-utensils fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          hasLiveMusic != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-music fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          hasSportsTv != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-futbol fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
+        {
+          isBrewery != null ? (
+            <span class="icon has-text-primary is-large">
+              <i class="fa-solid fa-building fa-2x" />
+            </span>
+          ) : (
+            ""
+          )
+        }
       </div>
     </div>
   </a>

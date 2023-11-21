@@ -1,0 +1,154 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const entry = await getEntry("places", slug);
+---
+
+<div class="content is-medium">
+  <p>La instalacion posee:</p>
+  {
+    entry?.data.drafts != null ? (
+      <>
+        <div class="icon-text">
+          <span class="icon has-text">
+            <i class="fa-solid fa-beer-mug-empty" />
+          </span>
+          <span class="has-text-weight-bold">Tiradores</span>
+        </div>
+        <p class="block">
+          Una barra con <strong>{entry?.data.drafts}</strong> tiradores de
+          cerveza
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.differentBeers != null ? (
+      <>
+        <div class="icon-text">
+          <span class="icon has-text">
+            <i class="fa-brands fa-untappd" />
+          </span>
+          <span class="has-text-weight-bold"> Tipos de Cerveza</span>
+        </div>
+        <p class="block">
+          Puedes encontrarte con <strong>{entry?.data.differentBeers}</strong>{" "}
+          tipos diferentes de cervezas
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.isGluteenFree === true ? (
+      <>
+        <div class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-wheat-awn-circle-exclamation" />
+          </span>
+          <span class="has-text-weight-bold"> Cerveza sin Gluten</span>
+        </div>
+        <p class="block">
+          <strong>SI</strong> poseemos cerveza sin gluten
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.hasTapas === true ? (
+      <>
+        <div class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-pizza-slice" />
+          </span>
+          <span class="has-text-weight-bold"> Tapas</span>
+        </div>
+        <p class="block">
+          <strong>SI</strong> poseemos tapas en nuestro local
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.isRestaurant === true ? (
+      <>
+        <div class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-utensils" />
+          </span>
+          <span class="has-text-weight-bold"> Restaurante</span>
+        </div>
+        <p class="block">
+          <strong>SI</strong> estamos habilitados para servir platos como un
+          restaurante
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.hasLiveMusic === true ? (
+      <>
+        <div class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-music" />
+          </span>
+          <span class="has-text-weight-bold"> Musica en Vivo</span>
+        </div>
+        <p class="block">
+          <strong>SI</strong> tenemos musica en vivo
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.hasSportsTv === true ? (
+      <>
+        <div class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-futbol" />
+          </span>
+          <span class="has-text-weight-bold"> Deportes en Vivo</span>
+        </div>
+        <p class="block">
+          <strong>SI</strong> tenemos deportes en vivo
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+  {
+    entry?.data.isBrewery === true ? (
+      <>
+        <div class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-building" />
+          </span>
+          <span class="has-text-weight-bold"> Fabrica de Cervezas</span>
+        </div>
+        <p class="block">
+          <strong>SI</strong> somos una fabrica de cervezas artesanales
+        </p>
+      </>
+    ) : (
+      ""
+    )
+  }
+</div>

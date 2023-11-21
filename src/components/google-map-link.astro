@@ -1,0 +1,51 @@
+---
+import { stringify } from "node:querystring";
+import {
+  GOOGLE_MAPS_BASE_DIR,
+  GOOGLE_DIRECTION_KEYS,
+  GOOGLE_LINK_ID,
+} from "./constants";
+
+interface Props {
+  destination: string;
+}
+
+const { destination } = Astro.props;
+
+const googleDirecton = {
+  [GOOGLE_DIRECTION_KEYS.DESTINATION]: destination,
+  [GOOGLE_DIRECTION_KEYS.ORIGIN]: "Sants+Estació",
+  [GOOGLE_DIRECTION_KEYS.TRAVELMODE]: "walking",
+};
+---
+
+<a
+  id={GOOGLE_LINK_ID}
+  href=`${GOOGLE_MAPS_BASE_DIR}${stringify(googleDirecton)}`
+>
+  <span class="icon">
+    <i class="fa-solid fa-location-dot"></i>
+  </span>
+  {destination}
+</a>
+
+<script>
+  import {
+    GOOGLE_MAPS_BASE_DIR,
+    GOOGLE_DIRECTION_KEYS,
+    GOOGLE_LINK_ID,
+  } from "./constants";
+
+  const link = document.getElementById(GOOGLE_LINK_ID) as HTMLAnchorElement;
+  const params = link?.href.split("&").splice(1).join("&");
+  const googleDirection = new URLSearchParams(params);
+  navigator.geolocation.getCurrentPosition(
+    ({ coords: { latitude, longitude } }) => {
+      googleDirection.set(
+        GOOGLE_DIRECTION_KEYS.ORIGIN,
+        `${latitude},${longitude}`,
+      );
+      link.href = `${GOOGLE_MAPS_BASE_DIR}${googleDirection.toString()}`;
+    },
+  );
+</script>
