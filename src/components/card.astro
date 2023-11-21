@@ -1,30 +1,18 @@
 ---
+import { type CollectionEntry } from "astro:content";
 import Icon from "./icon.astro";
 interface Props {
-  slug: string;
-  title: string;
-  image: string;
-  address: string;
-  phone: number;
+  place: CollectionEntry<"places">;
   position: number;
-  drafts?: number;
-  differentBeers?: number;
-  isGluteenFree?: boolean;
-  hasTapas?: boolean;
-  isRestaurant?: boolean;
-  hasLiveMusic?: boolean;
-  hasSportsTv?: boolean;
-  isBrewery?: boolean;
 }
 
+const { place, position } = Astro.props;
 const {
-  title,
-  image,
-  drafts,
   address,
-  slug,
+  image,
+  title,
   phone,
-  position,
+  drafts,
   differentBeers,
   isGluteenFree,
   hasTapas,
@@ -32,11 +20,17 @@ const {
   hasLiveMusic,
   hasSportsTv,
   isBrewery,
-} = Astro.props;
+  hasAsianFood,
+  hasBeerTasting,
+  hasBurgers,
+  hasVeganFood,
+  isPetFriendly,
+  isShop,
+} = place.data;
 ---
 
 <div class="card has-background-info-light">
-  <a href=`/places/${slug}`>
+  <a href=`/places/${place.slug}`>
     <div class="card-content">
       <div class="media">
         <div class="media-left">
@@ -55,15 +49,24 @@ const {
       <div class="block">
         <Icon iconClass="fa-solid fa-beer-mug-empty" value={drafts} />
         <Icon iconClass="fa-brands fa-untappd" value={differentBeers} />
-        <Icon
-          iconClass="fa-solid fa-wheat-awn-circle-exclamation"
-          value={isGluteenFree}
-        />
+        <Icon iconClass="fa-solid fa-leaf" value={hasVeganFood} />
         <Icon iconClass="fa-solid fa-pizza-slice" value={hasTapas} />
         <Icon iconClass="fa-solid fa-utensils" value={isRestaurant} />
         <Icon iconClass="fa-solid fa-music" value={hasLiveMusic} />
         <Icon iconClass="fa-solid fa-futbol" value={hasSportsTv} />
         <Icon iconClass="fa-solid fa-building" value={isBrewery} />
+        <Icon iconClass="fa-solid fa-bowl-rice" value={hasAsianFood} />
+        <Icon iconClass="fa-solid fa-burger" value={hasBurgers} />
+        <Icon iconClass="fa-solid fa-dog" value={isPetFriendly} />
+        <Icon iconClass="fa-solid fa-shop" value={isShop} />
+        <Icon
+          iconClass="fa-solid fa-wheat-awn-circle-exclamation"
+          value={isGluteenFree}
+        />
+        <Icon
+          iconClass="fa-solid fa-champagne-glasses"
+          value={hasBeerTasting}
+        />
       </div>
     </div>
   </a>

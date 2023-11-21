@@ -10,7 +10,7 @@ const places = await getCollection("places");
     places.map((place, index) => {
       return (
         <div class="column">
-          <Card slug={place.slug} position={index + 1} {...place.data} />
+          <Card place={place} position={index + 1} />
         </div>
       );
     })
