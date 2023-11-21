@@ -10,13 +10,19 @@ const isNumeric = !isNaN(Number(value?.toString()));
 
 {
   (value != null && isNumeric) || value === true ? (
-    <span
-      class={`icon has-text-primary ${isNumeric ? "is-large" : "is-medium"}`}
-    >
+    <div class="is-inline-flex is-align-items-center has-text-primary">
       {isNumeric ? <span>{value}</span> : ""}
-      <i class={`${iconClass} fa-xl`} />
-    </span>
+      <span class="icon is-medium">
+        <i class={`${iconClass} fa-xl`} />
+      </span>
+    </div>
   ) : (
     ""
   )
 }
+
+<style>
+  div {
+    margin: 0 0.25rem;
+  }
+</style>
