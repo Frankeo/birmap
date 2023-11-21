@@ -8,8 +8,8 @@ address: c/ Parlament 45
 lat: 41.377456931806485
 lng: 2.1635240839300507
 phone: 934619446
-image: /assets/artesants.png
-localImage: /assets/abirradero-local.jpg
+image: /uploads/artesants.png
+localImage: /uploads/abirradero-local.jpg
 drafts: 8
 differentBeers: 6
 isGluteenFree: true
