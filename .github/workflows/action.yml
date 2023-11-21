@@ -8,6 +8,7 @@ on:
 env:
   TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
   TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+  PROD: true
 
 jobs:
   ci-cd:
