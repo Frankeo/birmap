@@ -9,8 +9,9 @@ lat: 41.37428664666007
 lng: 2.1685619839299215
 phone: 934619446
 image: >-
-  https://res.cloudinary.com/dyumenth9/image/upload/v1700620901/uploads/abirradero_b0mepr.jpg
-localImage: /uploads/abirradero-local.jpg
+  https://res.cloudinary.com/dyumenth9/image/upload/v1700651146/abirradero_fsvdv2.jpg
+localImage: >-
+  https://res.cloudinary.com/dyumenth9/image/upload/v1700651142/abirradero-local_tnkbwy.jpg
 drafts: 40
 differentBeers: 12
 isGluteenFree: true
