@@ -1,4 +1,4 @@
-import { defineConfig, LocalAuthProvider } from "tinacms";
+import { defineConfig } from "tinacms";
 
 export default defineConfig({
   branch: "main",
@@ -11,8 +11,7 @@ export default defineConfig({
   media: {
     tina: {
       mediaRoot: "uploads",
-      publicFolder: "public",
-      static: true
+      publicFolder: "public"
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
