@@ -37,6 +37,6 @@ router.delete("/cloudinary/media/:media", async (req, res) => {
 });
 
 app.use("/api/", router);
-app.use("/.netlify/functions/api/", router);
+app.use("/netlify/functions/api/", router);
 
 export const handler = ServerlessHttp(app);
