@@ -8,9 +8,6 @@ on:
 env:
   TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
   TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-  CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-  CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-  CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
 jobs:
   ci-cd:
