@@ -6,8 +6,10 @@ address: c/ Casp 55
 lat: 41.39297524349307
 lng: 2.17528234248426
 phone: 934619446
-image: /uploads/arcoiris.jpg
-localImage: /uploads/abirradero-local.jpg
+image: >-
+  https://res.cloudinary.com/dyumenth9/image/upload/v1700651153/arcoiris_lkbm9y.jpg
+localImage: >-
+  https://res.cloudinary.com/dyumenth9/image/upload/v1700651142/abirradero-local_tnkbwy.jpg
 drafts: 8
 differentBeers: 20
 isGluteenFree: true
@@ -18,3 +20,4 @@ hasLiveMusic: false
 hasSportsTv: false
 isBrewery: false
 ---
+
