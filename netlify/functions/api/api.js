@@ -8,9 +8,9 @@ const app = express();
 const router = Router();
 
 const mediaHandler = createMediaHandler({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: "dyumenth9",
+  api_key: "342886347741661",
+  api_secret: "0Yj9XzDXUIdqAbVIMaF808Ayr0Q",
   authorized: async (req, _res) => {
     try {
       if (process.env.NODE_ENV === "development") {
