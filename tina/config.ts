@@ -1,15 +1,7 @@
-import { defineConfig } from "tinacms";
-
-// Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ??
-  process.env.VERCEL_GIT_COMMIT_REF ??
-  process.env.HEAD ??
-  "main";
+import { defineConfig, LocalAuthProvider } from "tinacms";
 
 export default defineConfig({
-  branch,
-  contentApiUrlOverride: "/api/tina/gql",
+  branch: "main",
   clientId: process.env.TINA_PUBLIC_CLIENT_ID,
   token: process.env.TINA_TOKEN,
   build: {
@@ -20,6 +12,7 @@ export default defineConfig({
     tina: {
       mediaRoot: "uploads",
       publicFolder: "public",
+      static: true
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
