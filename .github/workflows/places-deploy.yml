@@ -1,0 +1,32 @@
+name: Deploy to Netlify Places
+
+on:
+  push:
+    paths:
+      - "src/content/places/**.md"
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+  TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Node and Cache Deps
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.7.0"
+          cache: "yarn"
+      - name: Deploy to Netlify
+        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_TO_PROD: true
+          build_directory: dist
+          build_command: yarn build

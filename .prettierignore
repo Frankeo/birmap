@@ -3,3 +3,4 @@ dist
 coverage
 tina
 src/content/places
+public/admin/index.html
