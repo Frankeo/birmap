@@ -4,15 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
-    "start": "astro dev",
     "build": "tinacms build && astro build",
     "ci-build": "yarn pre-push && yarn build",
-    "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "pre-push": "yarn check-format && yarn lint",
+    "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "check-format": "prettier . --check",
-    "preview": "astro preview",
     "astro": "astro",
-    "prepare": "husky install"
+    "husky-install": "husky install"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
