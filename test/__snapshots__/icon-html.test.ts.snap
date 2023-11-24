@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Test Suite for getIconHtml > getIconHtml for boolean features 1`] = `
+"<span
+  style=\\"margin: 0 0.25rem;\\"
+  class=\\"icon-text has-text-primary has-text-weight-bold\\"
+>
+  
+  <span class=\\"icon\\">
+    <i class=\\"CSS fa-xl\\"></i>
+  </span>
+</span>"
+`;
+
+exports[`Test Suite for getIconHtml > getIconHtml for boolean features and small icons 1`] = `
+"<span
+  style=\\"margin: 0;\\"
+  class=\\"icon-text has-text-primary has-text-weight-bold\\"
+>
+  
+  <span class=\\"icon\\">
+    <i class=\\"CSS \\"></i>
+  </span>
+</span>"
+`;
+
+exports[`Test Suite for getIconHtml > getIconHtml for numeric features 1`] = `
+"<span
+  style=\\"margin: 0 0.25rem;\\"
+  class=\\"icon-text has-text-primary has-text-weight-bold\\"
+>
+  <span>12</span>
+  <span class=\\"icon\\">
+    <i class=\\"CSS fa-xl\\"></i>
+  </span>
+</span>"
+`;
+
+exports[`Test Suite for getIconHtml > getIconHtml for numeric features and small icons 1`] = `
+"<span
+  style=\\"margin: 0;\\"
+  class=\\"icon-text has-text-primary has-text-weight-bold\\"
+>
+  <span>12</span>
+  <span class=\\"icon\\">
+    <i class=\\"CSS \\"></i>
+  </span>
+</span>"
+`;

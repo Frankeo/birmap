@@ -6,7 +6,8 @@
     "dev": "tinacms dev -c \"astro dev\"",
     "build": "tinacms build && astro build",
     "ci-build": "yarn pre-push && yarn build",
-    "pre-push": "yarn check-format && yarn lint",
+    "pre-push": "yarn check-format && yarn lint && yarn test run",
+    "test": "vitest",
     "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "check-format": "prettier . --check",
     "astro": "astro",
@@ -51,6 +52,7 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^34.0.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }

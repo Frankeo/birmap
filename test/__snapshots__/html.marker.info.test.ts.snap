@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getHtmlMarkerInfo Suite > should return a LINK with a TITLE and NO icons when there are NOT features 1`] = `
+"        
+  <a href=\\"/places/abirradero\\" class=\\"has-text-primary\\">
+    <p>SOME TITLE</p>
+    
+  </a>
+  "
+`;
+
+exports[`getHtmlMarkerInfo Suite > should return a LINK with a TITLE and some icons when there are some features 1`] = `
+"        
+  <a href=\\"/places/abirradero\\" class=\\"has-text-primary\\">
+    <p>SOME TITLE</p>
+    <span
+  style=\\"margin: 0;\\"
+  class=\\"icon-text has-text-primary has-text-weight-bold\\"
+>
+  <span>1</span>
+  <span class=\\"icon\\">
+    <i class=\\"fa-solid fa-beer-mug-empty \\"></i>
+  </span>
+</span><span
+  style=\\"margin: 0;\\"
+  class=\\"icon-text has-text-primary has-text-weight-bold\\"
+>
+  <span>11</span>
+  <span class=\\"icon\\">
+    <i class=\\"fa-solid fa-beer-mug-empty \\"></i>
+  </span>
+</span>
+  </a>
+  "
+`;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import { getEntry, type CollectionEntry } from "astro:content";
-import { getIconHtml } from "../icon/icon";
+import { type CollectionEntry } from "astro:content";
+import { getHtmlMarkerInfo } from "./html-marker-info";
 
 export async function initMap(
   tourStops: Array<CollectionEntry<"places">>,
@@ -40,29 +40,11 @@ export async function initMap(
       bounds.extend(coordinates);
 
       // Add a click listener for each marker, and set up the info window.
-      const getHtmlInfo = async (): Promise<string> => {
-        let featuresHtml = "";
-        for (const fp of featuresPlace) {
-          const feature = await getEntry(
-            fp.feature.collection,
-            fp.feature.slug,
-          );
-          featuresHtml = `${featuresHtml}${getIconHtml(
-            feature.data.iconCss,
-            fp.value,
-            true,
-          )}`;
-        }
-        return /* html */ `        
-      <a href="/places/${slug}" class="has-text-primary">
-        <p>${title}</p>
-        ${featuresHtml}
-      </a>
-      `;
-      };
       marker.addListener("click", async () => {
         infoWindow.close();
-        infoWindow.setContent(await getHtmlInfo());
+        infoWindow.setContent(
+          await getHtmlMarkerInfo(featuresPlace, slug, title),
+        );
         infoWindow.open(marker.map, marker);
       });
     },

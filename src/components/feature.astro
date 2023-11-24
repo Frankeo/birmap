@@ -1,5 +1,6 @@
 ---
 import { marked } from "marked";
+import { replaceValue } from "../services/formats";
 
 interface Props {
   iconClass: string;
@@ -9,8 +10,6 @@ interface Props {
 }
 
 const { iconClass, title, text, value } = Astro.props;
-const replaceValue = (text: string): string =>
-  value !== undefined ? text.replace("$VALUE", value.toString()) : text;
 ---
 
 <div class="block">
@@ -20,5 +19,5 @@ const replaceValue = (text: string): string =>
     </span>
     <span class="has-text-weight-bold"> {title}</span>
   </div>
-  <p set:html={marked.parse(replaceValue(text))} />
+  <p set:html={marked.parse(replaceValue(text, value))} />
 </div>
