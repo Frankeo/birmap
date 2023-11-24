@@ -5,6 +5,7 @@ import Layout from "../../layouts/template.astro";
 import GoogleLink from "../../components/google-map-link.astro";
 import PhoneLink from "../../components/phone-link.astro";
 import { type InferGetStaticPropsType } from "astro";
+import { formatAddress } from "../../services/formats";
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const getStaticPaths = async () => {
@@ -42,15 +43,16 @@ const { Content } = await entry.render();
                 <div class="media-content">
                   <p class="title is-1 is-size-3-mobile">{entry.data.title}</p>
                   <p id="info" class="subtitle is-4 is-size-6-mobile is-flex">
-                    <GoogleLink destination={entry.data.address} />
+                    <GoogleLink
+                      destination={formatAddress(entry.data.address)}
+                    />
                     <PhoneLink phone={entry.data.phone} />
                   </p>
                 </div>
               </div>
               <div class="content">
-                <p class="subtitle">{entry.data.summary}</p>
-                <Features slug={entry.slug} />
                 <Content />
+                <Features slug={entry.slug} />
               </div>
             </div>
           </div>

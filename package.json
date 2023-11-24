@@ -17,6 +17,7 @@
     "@tinacms/auth": "^1.0.4",
     "astro": "^3.4.4",
     "express": "^4.18.2",
+    "marked": "^10.0.0",
     "nanostores": "^0.9.3",
     "next-tinacms-cloudinary": "^4.4.2",
     "serverless-http": "^3.2.0",

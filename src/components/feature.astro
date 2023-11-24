@@ -1,27 +1,24 @@
 ---
+import { marked } from "marked";
+
 interface Props {
   iconClass: string;
   title: string;
   text: string;
-  value?: number | boolean;
+  value: number | undefined;
 }
 
-const { iconClass, value, title, text } = Astro.props;
-const isNumeric = !isNaN(Number(value?.toString()));
+const { iconClass, title, text, value } = Astro.props;
+const replaceValue = (text: string): string =>
+  value !== undefined ? text.replace("$VALUE", value.toString()) : text;
 ---
 
-{
-  (value != null && isNumeric) || value === true ? (
-    <>
-      <div class="icon-text">
-        <span class="icon has-text">
-          <i class={iconClass} />
-        </span>
-        <span class="has-text-weight-bold"> {title}</span>
-      </div>
-      <p class="block" set:html={text} />
-    </>
-  ) : (
-    ""
-  )
-}
+<div class="block">
+  <div class="icon-text">
+    <span class="icon has-text">
+      <i class={iconClass}></i>
+    </span>
+    <span class="has-text-weight-bold"> {title}</span>
+  </div>
+  <p set:html={marked.parse(replaceValue(text))} />
+</div>

@@ -1,4 +1,11 @@
-import { defineConfig } from "tinacms";
+import { defineConfig, Form, TinaCMS } from "tinacms";
+import { getGeocode } from "./geo-code";
+
+interface BeforeSubmitArgs {
+  form: Form;
+  cms: TinaCMS;
+  values: Record<string, any>;
+}
 
 export default defineConfig({
   branch: "main",
@@ -18,6 +25,12 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        ui: {
+          beforeSubmit: async ({ cms, form, values} : BeforeSubmitArgs) => {
+            const position = await getGeocode(values["address"])
+            return { ...values, "coordinates": position }
+          }
+        },
         name: "places",
         label: "Places",
         path: "src/content/places",
@@ -31,30 +44,16 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "string",
+            type: "rich-text",
             name: "summary",
             label: "Summary",
-            ui: {
-              component: "textarea",
-            },
+            isBody: true,
             required: true,
           },
           {
             type: "string",
             name: "address",
             label: "Address",
-            required: true,
-          },
-          {
-            type: "number",
-            name: "lat",
-            label: "Latitude",
-            required: true,
-          },
-          {
-            type: "number",
-            name: "lng",
-            label: "Longitud",
             required: true,
           },
           {
@@ -76,77 +75,86 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "number",
-            name: "drafts",
-            label: "Drafts",
+            type: "object",
+            list: true,
+            name: "featuresPlace",
+            label: "Features at Place",
+            ui: {
+              itemProps: (item) => {
+                return { label: item?.feature };
+              },
+            },
+            fields: [
+              {
+                label: 'Feature',
+                name: "feature",
+                type: "reference",
+                collections: ['features'],
+                required: true,
+                ui: {
+                  parse: (val: string) => val.split("/").slice(-1)[0].split(".")[0],
+                  format: (val: string) => `src/content/features/${val}.md`
+                }
+              },
+              {
+                label: 'Value',
+                name: "value",
+                type: "number",
+                ui: {
+                  parse: (val: string) => val === "" ? undefined : Number(val)
+                }
+              }
+            ],
           },
           {
-            type: "number",
-            name: "differentBeers",
-            label: "Different type of beers",
-          },
-          {
-            type: "boolean",
-            name: "isGluteenFree",
-            label: "Is gluteen free?",
-          },
-          {
-            type: "boolean",
-            name: "hasBurgers",
-            label: "Has burgers?",
-          },
-          {
-            type: "boolean",
-            name: "hasAsianFood",
-            label: "Has asian food?",
-          },
-          {
-            type: "boolean",
-            name: "hasTapas",
-            label: "Has tapas?",
-          },
-          {
-            type: "boolean",
-            name: "isRestaurant",
-            label: "Is a restaurant?",
-          },
-          {
-            type: "boolean",
-            name: "hasVeganFood",
-            label: "Has vegan food?",
-          },
-          {
-            type: "boolean",
-            name: "hasLiveMusic",
-            label: "Has live music?",
-          },
-          {
-            type: "boolean",
-            name: "hasSportsTv",
-            label: "Has sports TV?",
-          },
-          {
-            type: "boolean",
-            name: "isShop",
-            label: "Is a beer shop?",
-          },
-          {
-            type: "boolean",
-            name: "isBrewery",
-            label: "Is a brewery?",
-          },
-          {
-            type: "boolean",
-            name: "isPetFriendly",
-            label: "Is pet friendly?",
-          },
-          {
-            type: "boolean",
-            name: "hasBeerTasting",
-            label: "Has beer tasting?",
-          },
+            type: "object",
+            name: "coordinates",
+            label: "Coordinates",
+            fields: [
+              {
+                type: "number",
+                name: "lat",
+                label: "Latitude",
+                required: true,
+              },
+              {
+                type: "number",
+                name: "lng",
+                label: "Longitud",
+                required: true,
+              },
+            ]
+          }
         ],
       },
+      {
+        name: "features",
+        label: "Features",
+        path: "src/content/features",
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "rich-text",
+            name: "text",
+            label: "Text",
+            isBody: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "iconCss",
+            label: "CSS Icon",
+            required: true,
+          },
+        ]
+      }
     ],
   },
 });

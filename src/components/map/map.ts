@@ -1,4 +1,10 @@
-export async function initMap(tourStops: MapPoint[]): Promise<void> {
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+import { getEntry, type CollectionEntry } from "astro:content";
+import { getIconHtml } from "../icon/icon";
+
+export async function initMap(
+  tourStops: Array<CollectionEntry<"places">>,
+): Promise<void> {
   const { Map, InfoWindow } = (await google.maps.importLibrary(
     "maps",
   )) as google.maps.MapsLibrary;
@@ -18,27 +24,49 @@ export async function initMap(tourStops: MapPoint[]): Promise<void> {
   const infoWindow = new InfoWindow();
 
   // Create the markers.
-  tourStops.forEach(({ position, title, slug }, i) => {
-    const pin = new PinElement({
-      glyph: `${i + 1}`,
-    });
+  tourStops.forEach(
+    ({ data: { title, coordinates, featuresPlace }, slug }, i) => {
+      const pin = new PinElement({
+        glyph: `${i + 1}`,
+      });
 
-    const marker = new AdvancedMarkerElement({
-      position,
-      map,
-      title: `<a href='/places/${slug}'>${title}</a>`,
-      content: pin.element,
-    });
+      const marker = new AdvancedMarkerElement({
+        position: coordinates,
+        map,
+        title,
+        content: pin.element,
+      });
 
-    bounds.extend(position);
+      bounds.extend(coordinates);
 
-    // Add a click listener for each marker, and set up the info window.
-    marker.addListener("click", () => {
-      infoWindow.close();
-      infoWindow.setContent(marker.title);
-      infoWindow.open(marker.map, marker);
-    });
-  });
+      // Add a click listener for each marker, and set up the info window.
+      const getHtmlInfo = async (): Promise<string> => {
+        let featuresHtml = "";
+        for (const fp of featuresPlace) {
+          const feature = await getEntry(
+            fp.feature.collection,
+            fp.feature.slug,
+          );
+          featuresHtml = `${featuresHtml}${getIconHtml(
+            feature.data.iconCss,
+            fp.value,
+            true,
+          )}`;
+        }
+        return /* html */ `        
+      <a href="/places/${slug}" class="has-text-primary">
+        <p>${title}</p>
+        ${featuresHtml}
+      </a>
+      `;
+      };
+      marker.addListener("click", async () => {
+        infoWindow.close();
+        infoWindow.setContent(await getHtmlInfo());
+        infoWindow.open(marker.map, marker);
+      });
+    },
+  );
 
   map.fitBounds(bounds);
 }

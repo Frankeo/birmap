@@ -16,11 +16,7 @@ const places = await getCollection("places", ({ slug }) => {
 <div class="section is-hidden">
   {
     places.map((place) => {
-      return (
-        <p class="points">
-          {place.data.title}|{place.data.lat}|{place.data.lng}|{place.slug}
-        </p>
-      );
+      return <p class="points">{JSON.stringify(place)}</p>;
     })
   }
 </div>
@@ -84,12 +80,7 @@ const places = await getCollection("places", ({ slug }) => {
   const points = document.getElementsByClassName("points");
   const mapPoints = [];
   for (const point of points) {
-    const parts = point.innerHTML.split("|");
-    mapPoints.push({
-      position: { lat: Number(parts[1]), lng: Number(parts[2]) },
-      title: parts[0],
-      slug: parts[3],
-    } as MapPoint);
+    mapPoints.push(JSON.parse(point.innerHTML));
   }
 
   initMap(mapPoints);

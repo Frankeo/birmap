@@ -5603,6 +5603,7 @@ __metadata:
     express: ^4.18.2
     husky: ^8.0.3
     lint-staged: ^14.0.1
+    marked: ^10.0.0
     nanostores: ^0.9.3
     next-tinacms-cloudinary: ^4.4.2
     postcss-html: ^1.5.0
@@ -10614,6 +10615,15 @@ __metadata:
   version: 3.0.3
   resolution: "markdown-table@npm:3.0.3"
   checksum: 8fcd3d9018311120fbb97115987f8b1665a603f3134c93fbecc5d1463380c8036f789e2a62c19432058829e594fff8db9ff81c88f83690b2f8ed6c074f8d9e10
+  languageName: node
+  linkType: hard
+
+"marked@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "marked@npm:10.0.0"
+  bin:
+    marked: bin/marked.js
+  checksum: 343c2c9a1cd66dacb59a269e93cea75901c98f4fb993078435628e5c79a76c9caaa9930de32bf30a5520f978a4c37098b7f557b2f45104d38a0d9d58dcc9bf9b
   languageName: node
   linkType: hard
 

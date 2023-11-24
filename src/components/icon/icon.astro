@@ -1,0 +1,12 @@
+---
+import { getIconHtml } from "./icon";
+interface Props {
+  iconClass: string;
+  value?: number | undefined;
+}
+
+const { iconClass, value } = Astro.props;
+const htmlText = getIconHtml(iconClass, value);
+---
+
+<span set:html={htmlText} />
