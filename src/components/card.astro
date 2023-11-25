@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getEntry } from "astro:content";
+import { formatAddress } from "../services/formats";
 import Icon from "./icon/icon.astro";
 interface Props {
   place: CollectionEntry<"places">;
@@ -24,7 +25,7 @@ const { address, image, title, phone, featuresPlace } = place.data;
             {title}
             <span class="tag is-rounded is-danger">{position}</span>
           </p>
-          <p class="subtitle is-6">{address} - {phone}</p>
+          <p class="subtitle is-6">{formatAddress(address)} - {phone}</p>
         </div>
       </div>
       <div class="block">

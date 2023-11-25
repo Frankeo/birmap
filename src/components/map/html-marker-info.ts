@@ -25,7 +25,7 @@ export const getHtmlMarkerInfo = async (
   }
   return /* html */ `        
   <a href="/places/${slug}" class="has-text-primary">
-    <p>${title}</p>
+    <p class="has-text-weight-bold">${title}</p>
     ${featuresHtml}
   </a>
   `;

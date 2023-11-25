@@ -3,7 +3,7 @@
 exports[`getHtmlMarkerInfo Suite > should return a LINK with a TITLE and NO icons when there are NOT features 1`] = `
 "        
   <a href=\\"/places/abirradero\\" class=\\"has-text-primary\\">
-    <p>SOME TITLE</p>
+    <p class=\\"has-text-weight-bold\\">SOME TITLE</p>
     
   </a>
   "
@@ -12,7 +12,7 @@ exports[`getHtmlMarkerInfo Suite > should return a LINK with a TITLE and NO icon
 exports[`getHtmlMarkerInfo Suite > should return a LINK with a TITLE and some icons when there are some features 1`] = `
 "        
   <a href=\\"/places/abirradero\\" class=\\"has-text-primary\\">
-    <p>SOME TITLE</p>
+    <p class=\\"has-text-weight-bold\\">SOME TITLE</p>
     <span
   style=\\"margin: 0;\\"
   class=\\"icon-text has-text-primary has-text-weight-bold\\"
